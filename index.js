@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const workoutList = document.getElementById('workout-list');
     const planList = document.getElementById('plan-list');
 
+
+    //fetch
     function fetchWorkouts() {
         fetch('http://localhost:3000/workouts')
             .then(response => {
@@ -20,9 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
+    //display *not displaying image
     function displayWorkout(workout) {
         const li = document.createElement('li');
         li.innerHTML = `
+            <img src="${workout.image}" alt="${workout.name}" class="workout-image">
             <strong>${workout.name}</strong>
             <p>${workout.description}</p>
             <button class="view-details" data-id="${workout.id}">View Details</button>
@@ -31,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         workoutList.appendChild(li);
     }
 
+    //view details revision*
     function viewDetails(id) {
         fetch(`http://localhost:3000/workouts/${id}`)
             .then(response => response.json())
@@ -43,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
+    //add to plan *revision
     function addToPlan(id) {
         fetch(`http://localhost:3000/workouts/${id}`)
             .then(response => response.json())
@@ -51,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
+    //isplay plan worktout *revision
     function displayPlanWorkout(workout) {
         const li = document.createElement('li');
         li.innerHTML = `
@@ -61,11 +68,13 @@ document.addEventListener('DOMContentLoaded', () => {
         planList.appendChild(li);
     }
 
+    //remove plan *revision
     function removeFromPlan(id) {
         const workoutItem = document.querySelector(`button[data-id="${id}"].remove-from-plan`).parentElement;
         workoutItem.remove();
     }
 
+    //workoutlist 
     workoutList.addEventListener('click', (event) => {
         if (event.target.classList.contains('view-details')) {
             const id = event.target.getAttribute('data-id');
@@ -76,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    //planlist
     planList.addEventListener('click', (event) => {
         if (event.target.classList.contains('remove-from-plan')) {
             const id = event.target.getAttribute('data-id');
