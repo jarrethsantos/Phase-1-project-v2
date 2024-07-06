@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
-    //display *not displaying image
+    //display
     function displayWorkout(workout) {
         const li = document.createElement('li');
         li.innerHTML = `
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         workoutList.appendChild(li);
     }
 
-    //view details revision*
+    //view details
     function viewDetails(id) {
         fetch(`http://localhost:3000/workouts/${id}`)
             .then(response => response.json())
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
-    //add to plan *revision
+    //add to plan 
     function addToPlan(id) {
         fetch(`http://localhost:3000/workouts/${id}`)
             .then(response => response.json())
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
-    //isplay plan worktout *revision
+    //display plan worktout 
     function displayPlanWorkout(workout) {
         const li = document.createElement('li');
         li.innerHTML = `
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         planList.appendChild(li);
     }
 
-    //remove plan *revision
+    //remove plan
     function removeFromPlan(id) {
         const workoutItem = document.querySelector(`button[data-id="${id}"].remove-from-plan`).parentElement;
         workoutItem.remove();
