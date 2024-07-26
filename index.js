@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function displayWorkout(workout) {
         const li = document.createElement('li');
         li.innerHTML = 
-                //Details stopped working after i plugged in image.
+           
         `
             <img src="${workout.image}" alt="${workout.name}" class="workout-image"></img> 
             <strong>${workout.name}</strong>

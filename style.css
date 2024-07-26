@@ -18,12 +18,23 @@ h1, h2 {
 ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
 }
 
 li {
     border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 10px;
+    width: 200px; 
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+li div {
+    flex-grow: 1;
 }
 
 .workout-image {
