@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
-    //add to plan *doesnt work
+    //add to plan 
     function addToPlan(id) {
         fetch(`http://localhost:3000/workouts/${id}`)
             .then(response => response.json())
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
-    //display plan worktout *display need to be fixed. Doesnt work sometimes???? triggers add to plan, view details, remove plan to fail
+    //display plan worktout 
     function displayPlanWorkout(workout) {
         const li = document.createElement('li');
         li.innerHTML = `
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         planList.appendChild(li);
     }
 
-    //remove plan *doesnt work
+    //remove plan 
     function removeFromPlan(id) {
         const workoutItem = document.querySelector(`button[data-id="${id}"].remove-from-plan`).parentElement;
         workoutItem.remove();
