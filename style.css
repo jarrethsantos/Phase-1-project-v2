@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 10px;
     background-color: #f4f4f4;
 }
 
@@ -12,7 +12,7 @@ h1, h2 {
 
 #workout-container, #plan-container {
     margin-top: 20px;
-    border-radius: 8px;
+    border-radius: 5px;
 }
 
 ul {

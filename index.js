@@ -25,8 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
     //display
     function displayWorkout(workout) {
         const li = document.createElement('li');
-        li.innerHTML = `
-            <img src="${workout.image}" alt="${workout.name}" class="workout-image">
+        li.innerHTML = 
+                //Details stopped working after i plugged in image.
+        `
+            <img src="${workout.image}" alt="${workout.name}" class="workout-image"></img> 
             <strong>${workout.name}</strong>
             <p>${workout.description}</p>
             <button class="view-details" data-id="${workout.id}">View Details</button>
@@ -35,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         workoutList.appendChild(li);
     }
 
-    //view details
+    //view details *doesnt work
     function viewDetails(id) {
         fetch(`http://localhost:3000/workouts/${id}`)
             .then(response => response.json())
@@ -48,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
-    //add to plan 
+    //add to plan *doesnt work
     function addToPlan(id) {
         fetch(`http://localhost:3000/workouts/${id}`)
             .then(response => response.json())
@@ -57,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
-    //display plan worktout 
+    //display plan worktout *display need to be fixed. Doesnt work sometimes???? triggers add to plan, view details, remove plan to fail
     function displayPlanWorkout(workout) {
         const li = document.createElement('li');
         li.innerHTML = `
@@ -68,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         planList.appendChild(li);
     }
 
-    //remove plan
+    //remove plan *doesnt work
     function removeFromPlan(id) {
         const workoutItem = document.querySelector(`button[data-id="${id}"].remove-from-plan`).parentElement;
         workoutItem.remove();
