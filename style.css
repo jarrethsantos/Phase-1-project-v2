@@ -33,10 +33,6 @@ li {
     border-radius: 5px;
 }
 
-li div {
-    flex-grow: 1;
-}
-
 .workout-image {
     width: 120px;
     height:120px;
