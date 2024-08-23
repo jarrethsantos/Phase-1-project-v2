@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function displayWorkout(workout) {
         const li = document.createElement('li');
         li.innerHTML = 
-           
+
         `
             <img src="${workout.image}" alt="${workout.name}" class="workout-image"></img> 
             <strong>${workout.name}</strong>
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         workoutList.appendChild(li);
     }
 
-    //view details *doesnt work
+    //view details
     function viewDetails(id) {
         fetch(`http://localhost:3000/workouts/${id}`)
             .then(response => response.json())
@@ -63,10 +63,19 @@ document.addEventListener('DOMContentLoaded', () => {
     function displayPlanWorkout(workout) {
         const li = document.createElement('li');
         li.innerHTML = `
+            <img src="${workout.image}" alt="${workout.name}" class="workout-image">
+        <div>
             <strong>${workout.name}</strong>
             <p>${workout.description}</p>
-            <button class="remove-from-plan" data-id="${workout.id}">Remove from Plan</button>
-        `;
+            <button onclick="viewDetails(${workout.id})">View Details</button>
+            <button onclick="addToPlan(${workout.id})">Add to Plan</button>
+        </div>
+    `;
+
+    li.addEventListener('mouseover', () => {
+        viewDetails(workout.id);
+    });
+    
         planList.appendChild(li);
     }
 
@@ -97,5 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     fetchWorkouts();
 });
+
+
 
 
